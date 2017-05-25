@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 body { 
   margin: 0px;
   padding: 0px;
+  font-family: 'Roboto', sans-serif;
 }
 
 p {
@@ -15,6 +18,11 @@ p {
 ul
 {
   padding: 0px;
+}
+
+li
+{
+  list-style-type: none;
 }
 
 .ul
@@ -35,4 +43,46 @@ ul
 {
   text-align: center;
   margin: 10px auto;
+}
+
+.repo-wrapper
+{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.avatar {
+  width: 150px;
+  border-radius: 50%;
+}
+
+.space-list-items {
+  margin-bottom: 7px;
+}
+
+.languages {
+  display: flex;
+  justify-content: center;
+}
+
+.languages li {
+  margin: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.popular-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.popular-item {
+  margin: 20px;
+  text-align: center;
+}
+
+.popular-rank {
+  font-size: 20px;
+  margin: 10px;
 }
