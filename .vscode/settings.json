@@ -1,0 +1,7 @@
+{
+    "vsicons.presets.angular": false,
+    "editor.tabSize": 2,
+    "editor.fontSize": 14,
+    "editor.rulers": [80, 120],
+    "editor.lineHeight": 21, 
+}
