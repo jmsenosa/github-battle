@@ -1,8 +1,9 @@
 var React = require('react');
 var PropTypes = require('prop-types');
 var api = require('../utils/api');
+
 function SelectLanguage(props) {
-  var languages = ['All', 'Javascript', 'PHP', 'Java', 'Python'];
+  var languages = ['All', 'Javascript', 'PHP', 'Java', 'Python', 'Ruby'];
   return (
     <div className="main-menu">   
       <ul className="ul">
@@ -43,7 +44,7 @@ function RepositoryGrid (props) {
                         alt={'Avatar for '+repo.owner.login}
                       />
                     </li>
-                    <li><a href={repo.html_url}>{repo.name}</a></li>
+                    <li><a href={repo.html_url} target={"_blank"}>{repo.name}</a></li>
                     <li>@{repo.owner.login}</li>
                     <li>{repo.stargazers_count}</li>
                   </ul>
@@ -61,7 +62,7 @@ SelectLanguage.PropTypes = {
   onSelect : PropTypes.func.isRequired
 }
 
-RepositoryGrid.prototype = {
+RepositoryGrid.Prototypes = {
   repos : PropTypes.array.isRequired
 }
 
@@ -106,7 +107,7 @@ class Popular extends React.Component {
           selectedLanguage={this.state.selectedLanguage}
           onSelect={this.updateLanguage}
         />
-        {!this.state.repos ? <div>loading...</div> : <RepositoryGrid repos={this.state.repos} />}
+        {!this.state.repos ? <div className="text-center">loading...</div> : <RepositoryGrid repos={this.state.repos} />}
         
       </div>   
     )
