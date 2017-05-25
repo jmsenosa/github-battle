@@ -1,4 +1,35 @@
 var React = require('react');
+var PropTypes = require('prop-types');
+
+function SelectLanguage(props) {
+  var languages = ['All', 'Javascript', 'PHP', 'Java', 'Python'];
+  return (
+    <div className="main-menu">   
+      <ul className="ul">
+        {
+          languages.map(function(lang){
+            return (
+              <li 
+                style={lang === props.selectedLanguage ? { color : '#d0021b'} : null}
+                onClick={props.onSelect.bind(null,lang)}
+                key={lang}>
+                {lang}
+              </li>
+            )
+          },this)
+        }
+      </ul>
+      <h3>
+        <p className="center">{props.selectedLanguage}</p>
+      </h3>
+    </div>
+  )
+} 
+
+SelectLanguage.PropTypes = {
+  selectedLanguage : PropTypes.string.isRequired,
+  onSelect : PropTypes.func.isRequired
+}
 
 class Popular extends React.Component {
 
@@ -21,29 +52,13 @@ class Popular extends React.Component {
   }
 
   render() {
-    var languages = ['All', 'Javascript', 'PHP', 'Java', 'Python'];
-
     return (
-      <div className="main-menu">         
-        <ul className="ul">
-          {
-            languages.map(function(lang){
-              return (
-                <li 
-                  style={lang === this.state.selectedLanguage ? { color : '#d0021b'} : null}
-                  onClick={this.updateLanguage.bind(null,lang)}
-                  key={lang}>
-                  {lang}
-                </li>
-              )
-            },this)
-          }
-        </ul>
-        <h3>
-          <p className="center">{this.state.selectedLanguage}</p>
-        </h3>
-      </div>
-      
+      <div>
+        <SelectLanguage 
+          selectedLanguage={this.state.selectedLanguage}
+          onSelect={this.updateLanguage}
+          />
+      </div>   
     )
   }
 } 
