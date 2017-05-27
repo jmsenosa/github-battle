@@ -170,3 +170,62 @@ a:hover
 {
   font-weight: bold;
 }
+
+
+.row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  align-items: center;
+}
+
+.column input {
+  border-radius: 3px;
+  margin: 10px 0;
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.43);
+  font-size: 16px;
+  width: 80%;
+}
+.column button:focus, 
+.column button:active
+{
+  background: #7d0f0f;
+}
+
+.column button:hover{
+  cursor: pointer;
+}
+
+.column label {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 200;
+}
+
+.header {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 200;
+}
+
+.vsimg {
+  width: 300px;
+  border: 1px solid #d4d4d4;
+  padding: 10px;
+  margin: 10px auto;
+}
+
+ .ken {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
