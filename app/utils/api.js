@@ -4,13 +4,13 @@ var secret   = "YOUR_CLIENT_ID";
 var params   = "?client_id="+ clientid +"&client_secret" + secret;
 
 function getProfile (username) {
-  return axios.get('https://api.github.com/users/' + username + params)
+  return axios.get(window.encodeURI('https://api.github.com/users/' + username + params))
     .then(function (user) {
       return user.data;
   });
 }
 function getRepost (username) {
-   return axios.get('https://api.github.com/users/' + username +"/repos"+ params + "&per_page=100")
+   return axios.get(window.encodeURI('https://api.github.com/users/' + username +"/repos"+ params + "&per_page=100"))
     .then(function (user) {
       return user.data;
   });
@@ -23,7 +23,8 @@ function getStarCount (repos) {
 
 function calculateScore (profile, repos) {
   var followers = profile.followers;
-  var totalStars = getStarCount(repos);
+  // var totalStars = getStarCount(repos);
+  var totalStars = 100;
 
   return (followers * 3) + totalStars;
 }
@@ -40,7 +41,7 @@ function getUserData (player) {
   ]).then(function(data){
     var profile = data[0];
     var repos = data[0];
-
+    
     return {
       profile: profile,
       score : calculateScore(profile, repos)
